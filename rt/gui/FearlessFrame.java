@@ -141,9 +141,9 @@ final class FearlessFrame extends JFrame{
     modelTimer.start();
   }
   private void stopTimer(){ 
-    if (timer != null){ timer.stop(); } 
-    if (modelTimer != null){ modelTimer.stop(); }
-  }//can this be null here?
+    timer.stop(); // always set before stopTimer is reachable
+    if (modelTimer != null){ modelTimer.stop(); } // conditional on modelFps
+  }
 
   private void finish(){
     Throwable e;
